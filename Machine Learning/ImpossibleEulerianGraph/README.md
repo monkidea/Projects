@@ -8,7 +8,7 @@ great way to feed training data into a Machine Learning algorithm.
 
 For example, if we were to look at the shopping trends of a customer in an online shopping platform, if we take the items
 bought by a customer to be the vertices of the graph, and the order in which items were bought to be the edges (we could
-consider multiple items purchased to each other to all be connected to each other), we could feed training data into our
+consider multiple items purchased together to all be connected to each other), we could feed training data into our
 machine learning algorithm using the path found by this program.
 
 This consists of a library file "Eulerian_Graph.py", which contains all the functions, class definitions and all the major
