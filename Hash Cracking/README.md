@@ -24,7 +24,9 @@ Just to clarify, you can get the usage options just by typing either "./CPU_acce
 "./CPU_accelerated_dict_attack_hash_cracker.py" and pressing Enter/Return.
 
   (i) Password Hasher :
+  
       ./CPU_accelerated_password_hasher.py --pass-list [PASSWORD LIST] --hash-type [HASH TYPE] --output-file [OUTPUT FILE]
       
   (ii) Dictionary Attack Hash Cracker :
+  
        ./CPU_accelerated_dict_attack_hash_cracker.py --hash-list [HASH FILE] --hash-type [HASH TYPE] --dictionary [DICTIONARY]
