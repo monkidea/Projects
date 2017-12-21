@@ -14,10 +14,10 @@ Usage :
 Just to clarify, you can check the usage options by typing in "./file_data_analyser.py" and hitting Enter/Return on your
 terminal.
 
-    (i) To search for a specific data item in file :
-    
+(i) To search for a specific data item in file :
+
     ./file_data_analyser -s [SEARCH TERM] -f [PATH TO INPUT FILE]
     
-    (ii) To search for all possible data items in file :
+(ii) To search for all possible data items in file :
     
     ./file_data_analyser --search-all True -f [PATH TO INPUT FILE]
