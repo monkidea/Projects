@@ -2,8 +2,9 @@ Introduction :
 --------------
 This is a project I had done as a part of my Design & Analysis of Algorithms Lab.
 
-It involves traversing a graph from start node and coming back to this start node, however, it does not follow
-the condition for a Eulerian Graph where no path can be traversed more than once.
+It involves traversing a graph from the start node and coming back to this start node, however, it does not follow
+the condition for a Eulerian Graph where no path can be traversed more than once. The Algorithm used is covered in the
+"Project Writeup.pdf" file.
 
 In doing this, we can visit the same path-traversal pattern multiple times. As a result of this, this program is a
 great way to feed training data into a Machine Learning algorithm.
@@ -20,8 +21,6 @@ Roles of Each File :
 This consists of a library file "Eulerian_Graph.py", which contains all the functions, class definitions and all the major
 portions of the code, while the file "Impossible_Eulerian_Cycle.py" simple contains the driver code for a test case. The
 "Impossible_Eulerian_Cycle.py" file should be edited to run your test cases.
-
-Refer to the "Project Writeup.pdf" file for the algorithm I designed to accomplish this task.
 
 Conclusion :
 ------------
