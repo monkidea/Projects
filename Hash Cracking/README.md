@@ -9,13 +9,13 @@ MacOS, Linux & other UNIX based systems.
 
 Work Done thus far :
 --------------------
---> Made a base working model
---> Improved time complexity
---> Improved speed through CPU acceleration
+- Made a base working model
+- Improved time complexity
+- Improved speed through CPU acceleration
 
 Work that needs to be done :
 ----------------------------
---> Need to implement GPU acceleration using the CUDA/OpenCL libraries (Numba/PyOpenCL) for Python.
+- Need to implement GPU acceleration using the CUDA/OpenCL libraries (Numba/PyOpenCL) for Python.
 
 Usage :
 -------
