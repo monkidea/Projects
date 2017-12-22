@@ -2,6 +2,7 @@ Introduction :
 --------------
 This is a barebones A.I. skeleton for a personal-assistant style A.I. (like the Google Assistant or Siri) that is meant to
 help in accelerating the development process of projects in the same genre.
+
 *Note :* For a detailed blueprint of CAIN, please look at the "CAIN Structural Documentation.pdf" file.
 
 Language :
