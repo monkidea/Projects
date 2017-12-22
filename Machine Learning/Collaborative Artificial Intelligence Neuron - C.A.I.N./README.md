@@ -2,6 +2,7 @@ Introduction :
 --------------
 This is a barebones A.I. skeleton for a personal-assistant style A.I. (like the Google Assistant or Siri) that is meant to
 help in accelerating the development process of projects in the same genre.
+*Note :* For a detailed blueprint of CAIN, please look at the "CAIN Structural Documentation.pdf" file.
 
 Language :
 ----------
@@ -50,10 +51,10 @@ Work Done :
 
 [∞] Output Library
 
+[∞] Finished writing the detailed descriptions for the operation and working of each sub-unit of C.A.I.N.
+
 Work TODO :
 -----------
-[Ω] Finish writing the detailed descriptions for the operation and working of each sub-unit of C.A.I.N.
-
 [Ω] Input Unit
 
 [Ω] Speech Requirement Checking Unit
@@ -77,4 +78,5 @@ This is a really fun project for me, especially thinking up the entire structure
 helpful.
 Thanks for having a look!
 
-- Shourojit
+
+-- Shourojit
