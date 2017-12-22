@@ -9,6 +9,7 @@ Python 3.6
 
 Structural Model :
 ------------------
+*Note :* There's a PDF containing a more neat, well-drawn Structural Model.
 
                                 [ Front End Speech / Text Input ]
                                               |
