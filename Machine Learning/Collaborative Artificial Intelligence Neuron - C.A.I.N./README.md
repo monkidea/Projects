@@ -69,3 +69,11 @@ be born instead.
 The 'C' in C.A.I.N. stands for "Collaborative" as CAIN by itself is not of much use. Only once somebody else collaborates
 and modifies CAIN for their own use would it be useful. The 'N' stands for "Neuron" as C.A.I.N. will be the brain of the
 A.I. that it is used in.
+
+End Note :
+----------
+This is a really fun project for me, especially thinking up the entire structure. I hope you can find this Project to be
+helpful.
+Thanks for having a look!
+
+- Shourojit
