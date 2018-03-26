@@ -54,6 +54,8 @@ Work Done :
 
 [∞] Finished writing the detailed descriptions for the operation and working of each sub-unit of C.A.I.N.
 
+[∞] SPU
+
 Work TODO :
 -----------
 [Ω] Input Unit
@@ -61,8 +63,6 @@ Work TODO :
 [Ω] Speech Requirement Checking Unit
 
 [Ω] Speech-to-Text Unit
-
-[Ω] SPU
 
 Trivia :
 --------
@@ -75,7 +75,7 @@ A.I. that it is used in.
 
 End Note :
 ----------
-This is a really fun project for me, especially thinking up the entire structure. I hope you can find this Project to be
+This was a really fun project for me, especially thinking up the entire structure. I hope you can find this Project to be
 helpful.
 Thanks for having a look!
 
