@@ -58,11 +58,13 @@ Work Done :
 
 [∞] Speech-to-Text Unit
 
+[∞] Input Unit
+
+[∞] Speech Requirement Checking Unit
+
 Work TODO :
 -----------
-[Ω] Input Unit
-
-[Ω] Speech Requirement Checking Unit
+[Ω] Main CAIN.py File
 
 Trivia :
 --------
