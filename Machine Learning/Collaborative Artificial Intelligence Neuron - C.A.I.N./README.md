@@ -56,13 +56,13 @@ Work Done :
 
 [∞] SPU
 
+[∞] Speech-to-Text Unit
+
 Work TODO :
 -----------
 [Ω] Input Unit
 
 [Ω] Speech Requirement Checking Unit
-
-[Ω] Speech-to-Text Unit
 
 Trivia :
 --------
