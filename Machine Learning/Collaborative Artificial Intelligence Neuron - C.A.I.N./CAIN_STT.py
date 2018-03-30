@@ -1,7 +1,6 @@
 """CAIN Speech-To-Text Unit
 Collaborative Artificial Intelligence Neuron v1.0"""
 
-# Import statements go here
 import speech_recognition as sr
 
 
