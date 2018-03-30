@@ -1,5 +1,5 @@
-"""Collaborative Artificial Intelligence Neuron v1.0
-   CAIN Output Library"""
+"""CAIN Output Unit
+Collaborative Artificial Intelligence Neuron v1.0"""
 
 import os
 
