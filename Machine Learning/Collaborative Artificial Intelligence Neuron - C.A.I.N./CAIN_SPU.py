@@ -1,7 +1,7 @@
 """CAIN Semantics Processing Unit
 Collaborative Artificial Intelligence Neuron v1.0"""
 
-import numpy as np
+# import numpy as np
 
 # ========= Global Variables ==========
 SEPERATORS = ['and', 'then', 'or', 'with']
@@ -14,13 +14,13 @@ PREPOSITIONS = set()
 PRONOUNS = set()
 textfile = open('verbs.txt', 'r').readlines()
 for i in textfile:
-    VERBS.add(i)
+    VERBS.add(i.strip())
 textfile = open('prepositions.txt', 'r').readlines()
 for i in textfile:
-    PREPOSITIONS.add(i)
+    PREPOSITIONS.add(i.strip())
 textfile = open('pronouns.txt', 'r').readlines()
 for i in textfile:
-    PRONOUNS.add(i)
+    PRONOUNS.add(i.strip())
 # ====== End of Global Variables ======
 
 
@@ -28,15 +28,20 @@ class CAIN_Sentence_Unit:
     """Sentence unit contains all the attributes of a sentence,
        i.e., subject, verb, object, preposition and faff."""
 
+    sentence = ""
+    # Now initializing the rest with value 'None'.
+    sentence_object = None
+    sentence_subject = None
+    sentence_verb = None
+    sentence_faff = None
+    sentence_preposition = None
+
     def __init__(self, sentence):
         # Actual sentence that has been inputted.
         self.sentence = sentence
-        # Now initializing the rest with value 'None'.
-        self.sentence_object = None
-        self.sentence_subject = None
-        self.sentence_verb = None
-        self.sentence_faff = None
-        self.sentence_preposition = None
+
+    def __repr__(self):
+        return(CAIN_Sentence_Unit.sentence)
 
 
 class CAIN_SPU:
@@ -52,7 +57,7 @@ class CAIN_SPU:
         # Taking the output from the Speech-to-Text unit as input
         self.stt_output = speech_to_text_output
         # Now calling Separation Engine. Each engine will in turn call the next
-        CAIN_SPU.Separation_Engine(self.stt_output)
+        # return(CAIN_SPU.Separation_Engine(self.stt_output))
 
     def Separation_Engine(inp):
         # Separating the sentences.
@@ -61,18 +66,18 @@ class CAIN_SPU:
         temp_buffer = ""
         for word in split_input:
             if word in SEPERATORS:
-                split_output.append(temp_buffer[:-1])
+                split_output.append(temp_buffer.rstrip())
                 temp_buffer = ""
             else:
                 temp_buffer += word + " "
-        split_output.append(temp_buffer)
+        split_output.append(temp_buffer.rstrip())
+        output_list = list()
         # Creating CAIN Sentence Units out of split sentences.
-        output_sentences = np.array(split_output)
-        for i in range(len(output_sentences)):
-            output_sentences[i] = CAIN_Sentence_Unit(output_sentences[i])
+        for val in split_output:
+            output_list.append(CAIN_Sentence_Unit(val))
         """Now, feeding seperated sentences into structural analysis
            engine using a CAIN_Sentence_Unit object"""
-        CAIN_SPU.Structural_Analysis_Engine(output_sentences)
+        return(CAIN_SPU.Structural_Analysis_Engine(output_list))
 
     def StructAnalysis(CAIN_SU):
         """Here we check to find the verb in the sentence.
@@ -106,29 +111,49 @@ class CAIN_SPU:
                 subjects.append(words_in_sentence[word])
             elif words_in_sentence[word] in PREPOSITIONS:
                 prepositions.append(words_in_sentence[word])
-                obj = words_in_sentence[word + 1]
+                try:
+                    # In case preposition is object
+                    obj = words_in_sentence[word + 1]
+                except IndexError:
+                    pass
             else:
                 faff.append(words_in_sentence[word])
 
         """Now, just in case everything is not hunky dory at the end of this and
            we have special cases"""
         if len(subjects) == 0:  # If our pronoun matching did not work.
-            subj_index = words_in_sentence.index(
-                verbs[0]) - 1  # Index of subject is 1 before index of 1st verb
-            subjects.append(words_in_sentence[subj_index])  # Add to subjects
-            faff.remove(subjects[0])  # Removing the word from faff list.
+            try:
+                subj_index = words_in_sentence.index(
+                    verbs[0]) - 1  # Index of subject is index of 1st verb - 1
+                # Add to subjects
+                if subj_index != -1:
+                    subjects.append(words_in_sentence[subj_index])
+                if(words_in_sentence[subj_index] in faff):
+                    faff.remove(words_in_sentence[subj_index])
+            except IndexError:
+                pass  # No subject in this case.
+
         if obj is None:  # No object found.
             if(len(verbs) != 0):  # If sentence contains a verb.
-                # Index of object is 2 after last verb
-                obj_index = words_in_sentence.index(verbs[-1]) + 2
-                obj = words_in_sentence[obj_index]
-                faff.remove(obj)  # Removing the word from faff list.
+                try:
+                    # Index of object is 2 after last verb
+                    obj_index = words_in_sentence.index(verbs[-1]) + 2
+                    obj = words_in_sentence[obj_index]
+                    if obj in faff:
+                        faff.remove(obj)
+                except IndexError:  # In this case, it's directly after verb.
+                    obj_index = words_in_sentence.index(verbs[-1]) + 1
+                    obj = words_in_sentence[obj_index]
+                    if obj in faff:
+                        faff.remove(obj)
             else:  # If sentence doesn't contain a verb.
                 """This type of special case occurs with the sentence that
                    comes after a conjunction(any word in the SEPERATORS list),
                    in which the object directly succeeds the conjunction"""
                 obj = words_in_sentence[0]
-
+        print("""Verbs : {}, Object : {}, subjects : {}, prepositions : {},
+                 faff : {}
+               """.format(verbs, obj, subjects, prepositions, faff))
         return (verbs, obj, subjects, prepositions, faff)
 
     def Structural_Analysis_Engine(inp):
@@ -147,7 +172,7 @@ class CAIN_SPU:
              CSU.sentence_faff) = CAIN_SPU.StructAnalysis(CSU)
             output.append(CSU)  # Adding processed CSU to output
         # Now, sending off the processed CSUs to the Faff Processing Engine.
-        CAIN_SPU.Faff_Processing_Engine(output)
+        return(CAIN_SPU.Faff_Processing_Engine(output))
 
     def Faff_Processing_Engine(inp):
         """What we're doing here is simply removing the faff from the sentences
@@ -161,13 +186,13 @@ class CAIN_SPU:
         # Now, we are receiving a list of CSUs as input.
         for CSU in inp:
             # Adjust the parameters to send to the FCPE here if needed.
-            if(CSU.sentence_verb is not None):
+            if(CSU.sentence_verb != []):
                 output_strings.append(
-                    str(CSU.sentence_verb) + " " + str(CSU.sentence_object))
+                    str(CSU.sentence_verb[-1]) + " " + CSU.sentence_object)
             else:  # In a special case where sentence has no verb.
                 output_strings.append(str(CSU.sentence_object))
         # Now that that's all processed, sending output to Final Engine
-        CAIN_SPU.Final_Command_Processing_Engine(output_strings)
+        return(CAIN_SPU.Final_Command_Processing_Engine(output_strings))
 
     def Final_Command_Processing_Engine(inp):
         """The way in which the Command Processing Engine gives the output
