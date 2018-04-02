@@ -1,7 +1,6 @@
 """CAIN Semantics Processing Unit
 Collaborative Artificial Intelligence Neuron v1.0"""
 
-# import numpy as np
 
 # ========= Global Variables ==========
 SEPERATORS = ['and', 'then', 'or', 'with']
