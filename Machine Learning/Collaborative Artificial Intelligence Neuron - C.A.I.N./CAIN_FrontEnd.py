@@ -11,9 +11,8 @@ class CAIN_FrontEnd:
 
     def __init__(self):
         self.TYPED_INPUT = ""
-        (self.front_end_input, self.isspeech) = CAIN_FrontEnd.take_input()
-        # Return input and mode of input.
-        return (self.front_end_input, self.isspeech)
+        self.front_end_input = None
+        self.isspeech = None
 
     def take_input():
         """Starting this 'pynput' keyboard listener may be subject to some
