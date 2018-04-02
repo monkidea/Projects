@@ -8,7 +8,7 @@ class CAIN_OUTPUT:
     """Output using classes for ease of usage."""
 
     def __init__(self, output_content, speech_output=True):
-        """Simple initiation"""
+        """Simple initialisation"""
         self.output_content = output_content
         self.speech_output = speech_output
         # Output mode is set to True for voice and False for text.
