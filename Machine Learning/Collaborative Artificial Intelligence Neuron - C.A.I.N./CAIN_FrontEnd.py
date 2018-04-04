@@ -11,7 +11,7 @@ class CAIN_FrontEnd:
 
     def __init__(self):
         self.TYPED_INPUT = ""
-        self.front_end_input = None
+        self.AUDIO_INPUT = None
         self.isspeech = None
 
     def take_input():
@@ -31,6 +31,7 @@ class CAIN_FrontEnd:
            virtual events generated to all currently running listeners of the
            current process.
            """
+        print("<<    Taking Input    >>")
         recog = sr.Recognizer()  # Simple Recognizer initialization.
         # Now setting placeholder values for Microphone, adjust as required.
         with sr.Microphone(device_index=0, sample_rate=48000,
@@ -39,11 +40,11 @@ class CAIN_FrontEnd:
                 listener.start()  # Starting the keyboard listener.
                 while listener is None:  # While user has not typed anything.
                     print("(( CAIN <Spoken> ))")  # Taking spoken input.
-                    audio = recog.listen(source)
-                    return (audio, True)  # Returns audio and indicates it.
+                    CAIN_FrontEnd.self.AUDIO_INPUT = recog.listen(source)
+                    return True  # Indicates audio output.
                 # If it gets here, it means that user started typing.
                 listener.join()
-                return (listener, False)  # Returns text and indicates it.
+                return False  # Indicates text output.
 
     def on_press(key):
         print("(( CAIN <Typed> ))")
