@@ -1,6 +1,7 @@
 """CAIN Speech-To-Text Unit
 Collaborative Artificial Intelligence Neuron v1.0"""
 
+# Import statements go here
 import speech_recognition as sr
 
 
@@ -10,7 +11,7 @@ class CAIN_STT:
     def __init__(self, speech_input):
         """Simple Initialisation function"""
         self.speech_input = speech_input
-        CAIN_STT.process_speech(self.speech_input)
+        self.text_output = None
 
     def process_speech(speech_to_process):
         recog = sr.Recognizer()
