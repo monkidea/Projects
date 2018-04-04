@@ -46,26 +46,6 @@ Operating Systems Supported :
 MacOS, Linux & other UNIX or *NIX based systems. Please note that the sound output in the output library only works for
 MacOS. Please change line 20 of the output library in order to get it working on Linux.
 
-Work Done :
------------
-[∞] CPU
-
-[∞] Output Library
-
-[∞] Finished writing the detailed descriptions for the operation and working of each sub-unit of C.A.I.N.
-
-[∞] SPU
-
-[∞] Speech-to-Text Unit
-
-[∞] Input Unit
-
-[∞] Speech Requirement Checking Unit
-
-Work TODO :
------------
-[Ω] Main CAIN.py File
-
 Trivia :
 --------
 I decided to call this CAIN as a reference to the legend of Cain & Abel. Once people download and change C.A.I.N. to suit
