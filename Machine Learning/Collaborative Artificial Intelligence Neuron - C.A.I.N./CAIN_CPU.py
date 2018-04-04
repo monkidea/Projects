@@ -2,6 +2,7 @@
 Collaborative Artificial Intelligence Neuron v1.0"""
 
 import os
+import sys
 
 
 class CAIN_CPU:
@@ -13,6 +14,7 @@ class CAIN_CPU:
         # CAIN_PATHS is a variable that can be adjusted if one wants
         # to add or remove paths to check in.
         self.CAIN_PATHS = ["/Users/shourojitdutt/CAIN/CAIN_exec"]
+        self.output_context = ""
 
     def execute_command(command, CAIN_PATHS):
         """Main command execution function"""
@@ -32,18 +34,18 @@ class CAIN_CPU:
             if command in read_check_file[i]:
                 buff = read_check_file[i]   # Dumping into another buffer
                 # Execute file from CAINpath
-                print("Command '{}' found in CAIN Path".format(command)
-                      + ", executing")
+                CAIN_CPU.self.output_context = "Command '{}' ".format(command)
+                CAIN_CPU.self.output_context += "found in CAIN Path, executing"
                 for path in CAIN_PATHS:
                     try:
                         os.system("python3.6 " + path + "/" +
                                   str(buff).rstrip())
-                    except Exception:
-                        pass
-                return 0
+                    except Exception as e:
+                        print("Exception Occured :\n{}".format(e))
+                        sys.exit(1)
         # If it reached here, it did not find file in CAIN path.
-        print(
-            "Command '{}' not found in CAIN Path".format(command)
-            + ", system executing.")
+
+        CAIN_CPU.self.output_context = "Command '{}' ".format(command)
+        CAIN_CPU.self.output_context += "not found in CAIN Path, system"
+        CAIN_CPU.self.output_context += " executing"
         os.system(command)
-        return 1
