@@ -55,8 +55,6 @@ class CAIN_SPU:
     def __init__(self, speech_to_text_output):
         # Taking the output from the Speech-to-Text unit as input
         self.stt_output = speech_to_text_output
-        # Now calling Separation Engine. Each engine will in turn call the next
-        # return(CAIN_SPU.Separation_Engine(self.stt_output))
 
     def Separation_Engine(inp):
         # Separating the sentences.
